@@ -1,0 +1,486 @@
+{
+  "schema": "qorx.evaluation.v1",
+  "generated_at": "2026-05-01T15:49:01+00:00",
+  "suite": "benchmark-lab",
+  "target_path": "examples/benchmark-lab",
+  "qorx_home": "target/qorx-benchmark-home-benchmark-lab",
+  "git_commit": "15caf6b",
+  "qorx_version": "qorx 1.0.2",
+  "budget_tokens": 600,
+  "squeeze_budget_tokens": 450,
+  "queries": [
+    "local context resolution resolver boundary proof page",
+    "qorx carriers .qorx .qorxb qorx handle",
+    "strict answer refusal unsupported claims"
+  ],
+  "summary": {
+    "indexed_tokens": 1125,
+    "strict_tasks": 2,
+    "strict_task_passes": 2,
+    "strict_task_pass_rate": 1.0,
+    "expected_refusals": 1,
+    "expected_refusal_passes": 1,
+    "expected_refusal_pass_rate": 1.0,
+    "agent_provider_calls": 0,
+    "boundary": "Local benchmark. Token counts are Qorx deterministic estimates, not provider billing records."
+  },
+  "commands": {
+    "version": {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 16.171,
+      "stderr": "",
+      "stdout": "qorx 1.0.2"
+    },
+    "index": {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "index",
+        "<repo>/examples/benchmark-lab"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 24.07,
+      "stderr": "",
+      "stdout": "Indexed 7 quarks from <repo>/examples/benchmark-lab into <repo>/target/qorx-benchmark-home-benchmark-lab/repo_index.pb (1125 estimated tokens, 3 symbols, 4 signals, 400 sparse vector terms)"
+    }
+  },
+  "session": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "session"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 20.481,
+    "stderr": "",
+    "json": {
+      "handle": "qorx://s/a5088ebb9518457f",
+      "root": "<repo>/examples/benchmark-lab",
+      "root_fingerprint": "a5088ebb9518457f5ab2e1417a2f5d9facfa18a0bfc483b4932d5bb1f803f96f",
+      "updated_at": "2026-05-01T15:49:01.357969800+00:00",
+      "quark_count": 7,
+      "indexed_tokens": 1125,
+      "visible_tokens": 69,
+      "omitted_tokens": 1056,
+      "context_reduction_x": 16.304347826086957,
+      "boundary": "Qorx session pointers are local resolver handles; exact context stays in the local Qorx cosmos and is resolved by the Qorx proxy.",
+      "prompt_block": "QORX_SESSION qorx://s/a5088ebb9518457f\nr=a5088ebb9518457f q=7 local_idx=1125\ncosmos=local redshift=ready; local_idx stays local; resolve with Qorx.\nproof at=2026-05-01T15:49:01Z ctx=1125t vis=69t saved=1056t red=16.30x est=char4 b2c=accounting cosmos=core redshift=core_b2c"
+    }
+  },
+  "bench": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "bench",
+      "--budget-tokens",
+      "600",
+      "local context resolution resolver boundary proof page",
+      "qorx carriers .qorx .qorxb qorx handle",
+      "strict answer refusal unsupported claims"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 23.546,
+    "stderr": "",
+    "json": {
+      "budget_tokens": 600,
+      "indexed_tokens": 1125,
+      "rows": [
+        {
+          "query": "local context resolution resolver boundary proof page",
+          "used_tokens": 512,
+          "omitted_tokens": 613,
+          "context_reduction_x": 2.197265625,
+          "quarks_used": 3
+        },
+        {
+          "query": "qorx carriers .qorx .qorxb qorx handle",
+          "used_tokens": 508,
+          "omitted_tokens": 617,
+          "context_reduction_x": 2.2145669291338583,
+          "quarks_used": 3
+        },
+        {
+          "query": "strict answer refusal unsupported claims",
+          "used_tokens": 446,
+          "omitted_tokens": 679,
+          "context_reduction_x": 2.522421524663677,
+          "quarks_used": 3
+        }
+      ],
+      "average_reduction_x": 2.311418026265845
+    }
+  },
+  "pack": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "pack",
+      "local context resolution resolver boundary proof page",
+      "--budget-tokens",
+      "600"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 20.705,
+    "stderr": "",
+    "json": {
+      "query": "local context resolution resolver boundary proof page",
+      "budget_tokens": 600,
+      "indexed_tokens": 1125,
+      "used_tokens": 512,
+      "omitted_tokens": 613,
+      "context_reduction_x": 2.197265625,
+      "quarks_used": 3,
+      "text": "# Qorx packed context\nquery: local context resolution resolver boundary proof page\nbudget_tokens: 600\nindexed_tokens: 1125\n\n## src/resolver.rs:1-23 id=qva_3c041ea4906a tokens=182 symbols=Carrier,ProofPage,resolve_carrier sig=80 vec=41\npub struct Carrier<'a> {\n    pub mode: &'a str,\n    pub objective: &'a str,\n    pub budget_tokens: u64,\n}\n\npub struct ProofPage<'a> {\n    pub citation: &'a str,\n    pub excerpt: &'a str,\n}\n\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// carrier text and local evidence. The runtime resolves .qorx, .qorxb, and\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {\n    if carrier.mode == \"strict-answer\" && carrier.budget_tokens >= 128 {\n        return Some(ProofPage {\n            citation: \"docs/runtime-boundary.md\",\n            excerpt: carrier.objective,\n        });\n    }\n    None\n}\n\n## docs/runtime-boundary.md:1-16 id=qva_6d59a16dbede tokens=203 vec=73\n# Runtime boundary\n\nQorx Local Context Resolution is the runtime process of resolving a small\ncarrier into local evidence under a declared mode and evidence budget.\n\nA carrier can be `.qorx` source, `.qorxb` bytecode, a `qorx://` handle, or a\ncompact evidence pack. The carrier is not the evidence itself. The Qorx resolver\nreads local state and returns a proof page with citations, or it refuses when it\ncannot support the request.\n\nThe resolver boundary is explicit. Model-visible text stays small. Local state\nsuch as indexes, cache entries, receipts, source files, and provenance records\nstays local until the runtime selects evidence for the task.\n\nQ-LCR does not make a remote model know hidden local files from a short handle.\nThe handle must be routed to a Qorx runtime before evidence can be resolved.\n\n## tasks/q-lcr.qorx:1-4 id=qva_6594761dd48b tokens=28 vec=16\nQORX 1\n@mode strict-answer\n@ask what proves Qorx Local Context Resolution has a resolver boundary?\n@budget 700\n"
+    }
+  },
+  "squeeze": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "squeeze",
+      "local context resolution resolver boundary proof page",
+      "--budget-tokens",
+      "450",
+      "--limit",
+      "4"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 21.183,
+    "stderr": "",
+    "json": {
+      "schema": "qorx.squeeze.v1",
+      "query": "local context resolution resolver boundary proof page",
+      "mode": "extractive_query_squeeze",
+      "local_only": true,
+      "provider_calls": 0,
+      "budget_tokens": 450,
+      "indexed_tokens": 1125,
+      "source_tokens": 772,
+      "squeezed_tokens": 260,
+      "used_tokens": 391,
+      "omitted_tokens": 734,
+      "context_reduction_x": 2.877237851662404,
+      "quarks_used": 4,
+      "evidence": [
+        {
+          "id": "qva_3c041ea4906a",
+          "path": "src/resolver.rs",
+          "start_line": 1,
+          "end_line": 23,
+          "source_tokens": 182,
+          "excerpt_tokens": 66,
+          "matched_terms": [
+            "boundary",
+            "context",
+            "local",
+            "page",
+            "proof",
+            "resolution",
+            "resolver"
+          ],
+          "excerpt_hash": "b786f337f5b1ab19",
+          "excerpt": "pub struct ProofPage<'a> {\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {"
+        },
+        {
+          "id": "qva_6d59a16dbede",
+          "path": "docs/runtime-boundary.md",
+          "start_line": 1,
+          "end_line": 16,
+          "source_tokens": 203,
+          "excerpt_tokens": 63,
+          "matched_terms": [
+            "boundary",
+            "context",
+            "local",
+            "page",
+            "proof",
+            "resolution",
+            "resolver"
+          ],
+          "excerpt_hash": "008750570e73d666",
+          "excerpt": "# Runtime boundary\nQorx Local Context Resolution is the runtime process of resolving a small\nreads local state and returns a proof page with citations, or it refuses when it\nThe resolver boundary is explicit. Model-visible text stays small. Local state"
+        },
+        {
+          "id": "qva_8fca54f7339b",
+          "path": "docs/unrelated-operations.md",
+          "start_line": 1,
+          "end_line": 20,
+          "source_tokens": 242,
+          "excerpt_tokens": 73,
+          "matched_terms": [
+            "context",
+            "local",
+            "page",
+            "proof",
+            "resolution"
+          ],
+          "excerpt_hash": "47d1d8c907c39de1",
+          "excerpt": "These notes exist to make the local index larger than the evidence needed for a\nfiles later, but they are unrelated to Qorx Local Context Resolution.\ncontext. It should not appear in a proof page about Q-LCR unless the query asks\n`qorx://`, proof pages, Redshift, or strict answer refusal."
+        },
+        {
+          "id": "qva_10f10dca6a99",
+          "path": "docs/strict-refusal.md",
+          "start_line": 1,
+          "end_line": 13,
+          "source_tokens": 145,
+          "excerpt_tokens": 58,
+          "matched_terms": [
+            "context",
+            "local",
+            "page",
+            "proof",
+            "resolution",
+            "resolver"
+          ],
+          "excerpt_hash": "cec894b385b87cb4",
+          "excerpt": "and cites local evidence. If a claim is absent from the local index, the correct\nThis fixture supports claims about Qorx Local Context Resolution, carriers,\nresolver boundaries, proof pages, and local accounting. It does not support"
+        }
+      ],
+      "text": "# Qorx squeezed context\nquery: local context resolution resolver boundary proof page\nbudget_tokens: 450\nindexed_tokens: 1125\n\n## src/resolver.rs:1-23 id=qva_3c041ea4906a source_tokens=182 excerpt_tokens=66 score=145\npub struct ProofPage<'a> {\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {\n\n## docs/runtime-boundary.md:1-16 id=qva_6d59a16dbede source_tokens=203 excerpt_tokens=63 score=106\n# Runtime boundary\nQorx Local Context Resolution is the runtime process of resolving a small\nreads local state and returns a proof page with citations, or it refuses when it\nThe resolver boundary is explicit. Model-visible text stays small. Local state\n\n## docs/unrelated-operations.md:1-20 id=qva_8fca54f7339b source_tokens=242 excerpt_tokens=73 score=71\nThese notes exist to make the local index larger than the evidence needed for a\nfiles later, but they are unrelated to Qorx Local Context Resolution.\ncontext. It should not appear in a proof page about Q-LCR unless the query asks\n`qorx://`, proof pages, Redshift, or strict answer refusal.\n\n## docs/strict-refusal.md:1-13 id=qva_10f10dca6a99 source_tokens=145 excerpt_tokens=58 score=62\nand cites local evidence. If a claim is absent from the local index, the correct\nThis fixture supports claims about Qorx Local Context Resolution, carriers,\nresolver boundaries, proof pages, and local accounting. It does not support\n",
+      "boundary": "Squeeze is extractive and local: it keeps only query-relevant lines from indexed quarks, preserves citations and hashes, and uses no model calls or generated missing context."
+    }
+  },
+  "agent": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "agent",
+      "prove local context resolution resolver boundary",
+      "--budget-tokens",
+      "600"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 23.289,
+    "stderr": "",
+    "json": {
+      "schema": "qorx.agent.v1",
+      "agent_name": "Marvin",
+      "objective": "prove local context resolution resolver boundary",
+      "mode": "deterministic_subatomic",
+      "local_only": true,
+      "provider_calls": 0,
+      "contract": {
+        "hallucination_policy": "refuse_unsupported_indexed_context",
+        "error_policy": "strict_extract_then_refuse",
+        "compression_policy": "subatomic_context_budget",
+        "b2c_policy": "account_then_claim",
+        "boundary": "Marvin enforces strict indexed-context mode for local evidence and keeps the working set compact. Downstream model correctness, external tool behavior, and facts absent from the local index are outside this local planner contract."
+      },
+      "steps": [
+        {
+          "action": "session",
+          "status": "completed",
+          "reason": "emit tiny local session pointer without bulk context"
+        },
+        {
+          "action": "strict-answer",
+          "status": "supported",
+          "reason": "ground objective against indexed quarks only"
+        },
+        {
+          "action": "pack",
+          "status": "completed",
+          "reason": "return the smallest relevant working set under budget"
+        }
+      ],
+      "session": {
+        "handle": "qorx://s/a5088ebb9518457f",
+        "root": "<repo>/examples/benchmark-lab",
+        "root_fingerprint": "a5088ebb9518457f5ab2e1417a2f5d9facfa18a0bfc483b4932d5bb1f803f96f",
+        "updated_at": "2026-05-01T15:49:01.357969800+00:00",
+        "quark_count": 7,
+        "indexed_tokens": 1125,
+        "visible_tokens": 69,
+        "omitted_tokens": 1056,
+        "context_reduction_x": 16.304347826086957,
+        "boundary": "Qorx session pointers are local resolver handles; exact context stays in the local Qorx cosmos and is resolved by the Qorx proxy.",
+        "prompt_block": "QORX_SESSION qorx://s/a5088ebb9518457f\nr=a5088ebb9518457f q=7 local_idx=1125\ncosmos=local redshift=ready; local_idx stays local; resolve with Qorx.\nproof at=2026-05-01T15:49:01Z ctx=1125t vis=69t saved=1056t red=16.30x est=char4 b2c=accounting cosmos=core redshift=core_b2c"
+      },
+      "strict_answer": {
+        "schema": "qorx.strict-answer.v1",
+        "question": "prove local context resolution resolver boundary",
+        "coverage": "supported",
+        "answer": "# Runtime boundary\nQorx Local Context Resolution is the runtime process of resolving a small\ncarrier into local evidence under a declared mode and evidence budget.\nThe resolver boundary is explicit. Model-visible text stays small. Local state\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// carrier text and local evidence. The runtime resolves .qorx, .qorxb, and\n// qorx:// carriers into proof pages when local evidence supports the request.\ncitation: \"docs/runtime-boundary.md\",",
+        "evidence": [
+          {
+            "id": "qva_6d59a16dbede",
+            "path": "docs/runtime-boundary.md",
+            "start_line": 1,
+            "end_line": 16,
+            "score": 89,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "local",
+              "resolution",
+              "resolver"
+            ],
+            "excerpt_hash": "2c56348107b37d5e",
+            "excerpt": "# Runtime boundary\nQorx Local Context Resolution is the runtime process of resolving a small\ncarrier into local evidence under a declared mode and evidence budget.\nThe resolver boundary is explicit. Model-visible text stays small. Local state"
+          },
+          {
+            "id": "qva_3c041ea4906a",
+            "path": "src/resolver.rs",
+            "start_line": 1,
+            "end_line": 23,
+            "score": 74,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "local",
+              "resolution",
+              "resolver"
+            ],
+            "excerpt_hash": "14cba68e7bb1374d",
+            "excerpt": "// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// carrier text and local evidence. The runtime resolves .qorx, .qorxb, and\n// qorx:// carriers into proof pages when local evidence supports the request.\ncitation: \"docs/runtime-boundary.md\","
+          }
+        ],
+        "supported_terms": [
+          "boundary",
+          "context",
+          "local",
+          "resolution",
+          "resolver"
+        ],
+        "missing_terms": [],
+        "indexed_tokens": 1125,
+        "used_tokens": 178,
+        "omitted_tokens": 947,
+        "boundary": "Strict answers are extractive: every answer byte comes from indexed quark excerpts. Unsupported questions return not_found instead of model guesses."
+      },
+      "packed_context": {
+        "query": "prove local context resolution resolver boundary",
+        "budget_tokens": 600,
+        "indexed_tokens": 1125,
+        "used_tokens": 510,
+        "omitted_tokens": 615,
+        "context_reduction_x": 2.2058823529411766,
+        "quarks_used": 3,
+        "text": "# Qorx packed context\nquery: prove local context resolution resolver boundary\nbudget_tokens: 600\nindexed_tokens: 1125\n\n## docs/runtime-boundary.md:1-16 id=qva_6d59a16dbede tokens=203 vec=73\n# Runtime boundary\n\nQorx Local Context Resolution is the runtime process of resolving a small\ncarrier into local evidence under a declared mode and evidence budget.\n\nA carrier can be `.qorx` source, `.qorxb` bytecode, a `qorx://` handle, or a\ncompact evidence pack. The carrier is not the evidence itself. The Qorx resolver\nreads local state and returns a proof page with citations, or it refuses when it\ncannot support the request.\n\nThe resolver boundary is explicit. Model-visible text stays small. Local state\nsuch as indexes, cache entries, receipts, source files, and provenance records\nstays local until the runtime selects evidence for the task.\n\nQ-LCR does not make a remote model know hidden local files from a short handle.\nThe handle must be routed to a Qorx runtime before evidence can be resolved.\n\n## src/resolver.rs:1-23 id=qva_3c041ea4906a tokens=182 symbols=Carrier,ProofPage,resolve_carrier sig=80 vec=41\npub struct Carrier<'a> {\n    pub mode: &'a str,\n    pub objective: &'a str,\n    pub budget_tokens: u64,\n}\n\npub struct ProofPage<'a> {\n    pub citation: &'a str,\n    pub excerpt: &'a str,\n}\n\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// carrier text and local evidence. The runtime resolves .qorx, .qorxb, and\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {\n    if carrier.mode == \"strict-answer\" && carrier.budget_tokens >= 128 {\n        return Some(ProofPage {\n            citation: \"docs/runtime-boundary.md\",\n            excerpt: carrier.objective,\n        });\n    }\n    None\n}\n\n## tasks/q-lcr.qorx:1-4 id=qva_6594761dd48b tokens=28 vec=16\nQORX 1\n@mode strict-answer\n@ask what proves Qorx Local Context Resolution has a resolver boundary?\n@budget 700\n"
+      },
+      "boundary": "Marvin is Qorx's deterministic local planner. The planner uses local indexed evidence, zero provider calls, and explicit refusal for unsupported indexed context."
+    }
+  },
+  "strict_answer_tasks": [
+    {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "strict-answer",
+        "local context resolution resolver boundary proof page",
+        "--limit",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 20.833,
+      "stderr": "",
+      "json": {
+        "schema": "qorx.strict-answer.v1",
+        "question": "local context resolution resolver boundary proof page",
+        "coverage": "supported",
+        "answer": "pub struct ProofPage<'a> {\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {\n# Runtime boundary\nQorx Local Context Resolution is the runtime process of resolving a small\nreads local state and returns a proof page with citations, or it refuses when it\nThe resolver boundary is explicit. Model-visible text stays small. Local state\nThese notes exist to make the local index larger than the evidence needed for a\nfiles later, but they are unrelated to Qorx Local Context Resolution.\ncontext. It should not appear in a proof page about Q-LCR unless the query asks\n`qorx://`, proof pages, Redshift, or strict answer refusal.",
+        "evidence": [
+          {
+            "id": "qva_3c041ea4906a",
+            "path": "src/resolver.rs",
+            "start_line": 1,
+            "end_line": 23,
+            "score": 145,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "local",
+              "page",
+              "proof",
+              "resolution",
+              "resolver"
+            ],
+            "excerpt_hash": "b786f337f5b1ab19",
+            "excerpt": "pub struct ProofPage<'a> {\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {"
+          },
+          {
+            "id": "qva_6d59a16dbede",
+            "path": "docs/runtime-boundary.md",
+            "start_line": 1,
+            "end_line": 16,
+            "score": 106,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "local",
+              "page",
+              "proof",
+              "resolution",
+              "resolver"
+            ],
+            "excerpt_hash": "008750570e73d666",
+            "excerpt": "# Runtime boundary\nQorx Local Context Resolution is the runtime process of resolving a small\nreads local state and returns a proof page with citations, or it refuses when it\nThe resolver boundary is explicit. Model-visible text stays small. Local state"
+          },
+          {
+            "id": "qva_8fca54f7339b",
+            "path": "docs/unrelated-operations.md",
+            "start_line": 1,
+            "end_line": 20,
+            "score": 71,
+            "matched_terms": [
+              "context",
+              "local",
+              "page",
+              "proof",
+              "resolution"
+            ],
+            "excerpt_hash": "47d1d8c907c39de1",
+            "excerpt": "These notes exist to make the local index larger than the evidence needed for a\nfiles later, but they are unrelated to Qorx Local Context Resolution.\ncontext. It should not appear in a proof page about Q-LCR unless the query asks\n`qorx://`, proof pages, Redshift, or strict answer refusal."
+          }
+        ],
+        "supported_terms": [
+          "boundary",
+          "context",
+          "local",
+          "page",
+          "proof",
+          "resolution",
+          "resolver"
+        ],
+        "missing_terms": [],
+        "indexed_tokens": 1125,
+        "used_tokens": 270,
+        "omitted_tokens": 855,
+        "boundary": "Strict answers are extractive: every answer byte comes from indexed quark excerpts. Unsupported questions return not_found instead of model guesses."
+      },
+      "question": "local context resolution resolver boundary proof page",
+      "expected_coverage": "supported",
+      "passed": true
+    },
+    {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "strict-answer",
+        "galactic banana escrow treaty",
+        "--limit",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 20.78,
+      "stderr": "",
+      "json": {
+        "schema": "qorx.strict-answer.v1",
+        "question": "galactic banana escrow treaty",
+        "coverage": "not_found",
+        "answer": "",
+        "evidence": [],
+        "supported_terms": [],
+        "missing_terms": [
+          "banana",
+          "escrow",
+          "galactic",
+          "treaty"
+        ],
+        "indexed_tokens": 1125,
+        "used_tokens": 8,
+        "omitted_tokens": 1117,
+        "boundary": "Strict answers are extractive: every answer byte comes from indexed quark excerpts. Unsupported questions return not_found instead of model guesses."
+      },
+      "question": "galactic banana escrow treaty",
+      "expected_coverage": "not_found",
+      "passed": true
+    }
+  ]
+}

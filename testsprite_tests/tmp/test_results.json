@@ -1,0 +1,38 @@
+[
+  {
+    "testId": "TC001",
+    "title": "TC001 Community homepage shows Qorx 1.0.4",
+    "description": "Verify the public Qorx Community Edition home page loads, names the CE boundary, and shows version 1.0.4.",
+    "priority": "High",
+    "testStatus": "FAILED",
+    "testError": "Not executed by TestSprite in this repository run yet.",
+    "testType": "FRONTEND",
+    "testVisualization": "",
+    "created": "2026-05-02T06:30:00Z",
+    "modified": "2026-05-03T00:00:00Z"
+  },
+  {
+    "testId": "TC002",
+    "title": "TC002 Community docs expose boundary and TestSprite QA links",
+    "description": "Verify the public Qorx home page links to the Community Edition boundary and TestSprite QA docs.",
+    "priority": "High",
+    "testStatus": "FAILED",
+    "testError": "Not executed by TestSprite in this repository run yet.",
+    "testType": "FRONTEND",
+    "testVisualization": "",
+    "created": "2026-05-02T06:30:00Z",
+    "modified": "2026-05-03T00:00:00Z"
+  },
+  {
+    "testId": "TC003",
+    "title": "TC003 Technical credibility page bounds language and bytecode claims",
+    "description": "Verify the public Qorx docs include a credibility page that bounds language, bytecode, qstk, Forth, and provider-savings claims.",
+    "priority": "High",
+    "testStatus": "FAILED",
+    "testError": "Not executed by TestSprite in this repository run yet.",
+    "testType": "FRONTEND",
+    "testVisualization": "",
+    "created": "2026-05-02T11:15:00Z",
+    "modified": "2026-05-03T00:00:00Z"
+  }
+]

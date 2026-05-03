@@ -1,0 +1,49 @@
+name: Build Qorx Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Windows x64
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Rust stable
+        shell: pwsh
+        run: |
+          rustup update stable
+          rustup default stable
+          rustup component add rustfmt clippy
+
+      - name: Format check
+        run: cargo fmt --check
+
+      - name: Test
+        run: cargo test
+
+      - name: Clippy
+        run: cargo clippy -- -D warnings
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Smoke test binary
+        shell: pwsh
+        run: |
+          .\target\release\qorx.exe --version
+          .\target\release\qorx.exe doctor --json
+          .\target\release\qorx.exe index .
+          .\target\release\qorx.exe strict-answer "language runtime proof"

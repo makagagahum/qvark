@@ -1,0 +1,470 @@
+{
+  "schema": "qorx.evaluation.v1",
+  "generated_at": "2026-05-02T07:38:40+00:00",
+  "suite": "qorx-self",
+  "target_path": ".",
+  "qorx_home": "target/qorx-benchmark-home-qorx-self",
+  "git_commit": "78469bd",
+  "qorx_version": "qorx 1.0.4",
+  "budget_tokens": 600,
+  "squeeze_budget_tokens": 450,
+  "queries": [
+    "context fault proof pages resolver boundary",
+    "qorx carriers .qorx .qorxb qorx handle",
+    "strict answer refusal unsupported claims"
+  ],
+  "supported_question": "context fault proof pages resolver boundary",
+  "unsupported_question": "galactic banana escrow treaty",
+  "agent_objective": "prove context fault proof pages resolver boundary",
+  "output_json": "docs/benchmarks/2026-05-02-qorx-self.json",
+  "output_md": "docs/benchmarks/2026-05-02-qorx-self.md",
+  "summary": {
+    "indexed_tokens": 219838,
+    "strict_tasks": 2,
+    "strict_task_passes": 2,
+    "strict_task_pass_rate": 1.0,
+    "expected_refusals": 1,
+    "expected_refusal_passes": 1,
+    "expected_refusal_pass_rate": 1.0,
+    "agent_provider_calls": 0,
+    "boundary": "Local benchmark. Token counts are Qorx deterministic estimates, not provider billing records."
+  },
+  "commands": {
+    "version": {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 19.007,
+      "stderr": "",
+      "stdout": "qorx 1.0.4"
+    },
+    "index": {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "index",
+        "<repo>"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 238.123,
+      "stderr": "",
+      "stdout": "Indexed 423 quarks from <repo> into <repo>/target/qorx-benchmark-home-qorx-self/repo_index.pb (219838 estimated tokens, 2349 symbols, 1254 signals, 31271 sparse vector terms)"
+    }
+  },
+  "session": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "session"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 56.005,
+    "stderr": "",
+    "json": {
+      "handle": "qorx://s/45c14e058b31e35b",
+      "root": "<repo>",
+      "root_fingerprint": "45c14e058b31e35b968eece04536e627d5496df968436bf87bb68fa9ace355fd",
+      "updated_at": "2026-05-02T07:38:40.435930900+00:00",
+      "quark_count": 423,
+      "indexed_tokens": 219838,
+      "visible_tokens": 73,
+      "omitted_tokens": 219765,
+      "context_reduction_x": 3011.4794520547944,
+      "boundary": "Qorx session pointers are local resolver handles; exact context stays in the local Qorx cosmos and is resolved by the Qorx proxy. Cosmos is the Qorx name for local protobuf state, not a physics claim.",
+      "prompt_block": "QORX_SESSION qorx://s/45c14e058b31e35b\nr=45c14e058b31e35b q=423 local_idx=219838\ncosmos=local redshift=ready; local_idx stays local; resolve with Qorx.\nproof at=2026-05-02T07:38:40Z ctx=219838t vis=73t omitted=219765t redshift=3011.48x est=char4 b2c=accounting cosmos=core redshift=core_b2c"
+    }
+  },
+  "bench": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "bench",
+      "--budget-tokens",
+      "600",
+      "context fault proof pages resolver boundary",
+      "qorx carriers .qorx .qorxb qorx handle",
+      "strict answer refusal unsupported claims"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 96.844,
+    "stderr": "",
+    "json": {
+      "budget_tokens": 600,
+      "indexed_tokens": 219838,
+      "rows": [
+        {
+          "query": "context fault proof pages resolver boundary",
+          "used_tokens": 484,
+          "omitted_tokens": 219354,
+          "context_reduction_x": 454.2107438016529,
+          "quarks_used": 3
+        },
+        {
+          "query": "qorx carriers .qorx .qorxb qorx handle",
+          "used_tokens": 450,
+          "omitted_tokens": 219388,
+          "context_reduction_x": 488.5288888888889,
+          "quarks_used": 3
+        },
+        {
+          "query": "strict answer refusal unsupported claims",
+          "used_tokens": 532,
+          "omitted_tokens": 219306,
+          "context_reduction_x": 413.2293233082707,
+          "quarks_used": 4
+        }
+      ],
+      "average_reduction_x": 451.9896519996042
+    }
+  },
+  "pack": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "pack",
+      "context fault proof pages resolver boundary",
+      "--budget-tokens",
+      "600"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 74.409,
+    "stderr": "",
+    "json": {
+      "query": "context fault proof pages resolver boundary",
+      "budget_tokens": 600,
+      "indexed_tokens": 219838,
+      "used_tokens": 484,
+      "omitted_tokens": 219354,
+      "context_reduction_x": 454.2107438016529,
+      "quarks_used": 3,
+      "text": "# Qorx B2C packed context\nquery: context fault proof pages resolver boundary\nbudget_tokens: 600\nindexed_tokens: 219838\nb2c_route=pack\nb2c_parallel_lanes=retrieval,portfolio,risk,cache,carrier\nb2c_math=bounded_knapsack,portfolio_diversification,omission_risk_cap,stable_quark_reuse_value\n\n## id=qva_dbc9a6ae4d2b path=examples/benchmark-lab/tasks/q-lcr.qorx lines=1-4 tokens=28 b2c_net=55.08 retrieval=30 risk=0.50 cache=3.37 carrier=fault_if_needed\nQORX 1\n@mode strict-answer\n@ask what proves Qorx Local Context Resolution has a resolver boundary?\n@budget 700\n\n## id=qva_6099b2a2f968 path=src/context_vm.rs lines=881-902 tokens=176 symbols=mut,fault_status b2c_net=67.68 retrieval=57 risk=0.33 cache=5.18 carrier=fault_if_needed\nlet mut hasher = Sha256::new();\n    hasher.update(handle.as_bytes());\n    hasher.update(query.as_bytes());\n    for page in pages {\n        hasher.update(page.uri.as_bytes());\n        hasher.update(page.content_hash.as_bytes());\n    }\n    format!(\"qvf_{}\", &format!(\"{:x}\", hasher.finalize())[..12])\n}\n\nfn fault_status(coverage: &str, missing_terms: &[String], pages: &[ProofPage]) -> String {\n    if pages.is_empty() {\n        return \"not_found\".to_string();\n    }\n    if coverage == \"supported\" && missing_terms.is_empty() {\n        return \"resolved\".to_string();\n    }\n    if coverage == \"partial\" || !missing_terms.is_empty() {\n        return \"partial\".to_string();\n    }\n    \"resolved\".to_string()\n}\n\n## id=qva_71d4ef7311b3 path=examples/benchmark-lab/src/resolver.rs lines=1-23 tokens=182 symbols=Carrier,ProofPage,resolve_carrier b2c_net=71.19 retrieval=97 risk=0.17 cache=5.21 carrier=pack\npub struct Carrier<'a> {\n    pub mode: &'a str,\n    pub objective: &'a str,\n    pub budget_tokens: u64,\n}\n\npub struct ProofPage<'a> {\n    pub citation: &'a str,\n    pub excerpt: &'a str,\n}\n\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// carrier text and local evidence. The runtime resolves .qorx, .qorxb, and\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {\n    if carrier.mode == \"strict-answer\" && carrier.budget_tokens >= 128 {\n        return Some(ProofPage {\n            citation: \"docs/runtime-boundary.md\",\n            excerpt: carrier.objective,\n        });\n    }\n    None\n}\n"
+    }
+  },
+  "squeeze": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "squeeze",
+      "context fault proof pages resolver boundary",
+      "--budget-tokens",
+      "450",
+      "--limit",
+      "4"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 70.084,
+    "stderr": "",
+    "json": {
+      "schema": "qorx.squeeze.v1",
+      "query": "context fault proof pages resolver boundary",
+      "mode": "extractive_query_squeeze",
+      "local_only": true,
+      "provider_calls": 0,
+      "budget_tokens": 450,
+      "indexed_tokens": 219838,
+      "source_tokens": 2308,
+      "squeezed_tokens": 315,
+      "used_tokens": 419,
+      "omitted_tokens": 219419,
+      "context_reduction_x": 524.6730310262529,
+      "quarks_used": 3,
+      "evidence": [
+        {
+          "id": "qva_65bb29dee093",
+          "path": "src/context_vm.rs",
+          "start_line": 321,
+          "end_line": 400,
+          "source_tokens": 757,
+          "excerpt_tokens": 113,
+          "matched_terms": [
+            "boundary",
+            "context",
+            "fault",
+            "pages",
+            "proof",
+            "resolver"
+          ],
+          "excerpt_hash": "f14f144ca5ff80a6",
+          "excerpt": "proof_pages,\nboundary: \"Qorx Context VM is a local context-memory manager, not a Linux virtual machine. It keeps Qorx-known context in Cosmos, exposes scoped handles, resolves proof pages on demand, and reports fresh model-visible context avoided instead of claiming that tokens disappear.\".to_string(),\nlet status = fault_status(&strict.coverage, &strict.missing_terms, &proof_pages);\nlet fault_id = fault_id(&resolved_handle, query, &proof_pages);"
+        },
+        {
+          "id": "qva_560738bd6299",
+          "path": "src/context_vm.rs",
+          "start_line": 241,
+          "end_line": 320,
+          "source_tokens": 761,
+          "excerpt_tokens": 58,
+          "matched_terms": [
+            "boundary",
+            "context",
+            "fault",
+            "pages",
+            "proof"
+          ],
+          "excerpt_hash": "90449f24ef565241",
+          "excerpt": "let fault = resolve_context_fault(index, &session.handle, objective, options);\nlet proof_pages = fault.proof_pages.clone();\n\"QORX_CONTEXT_VM version={CONTEXT_VM_VERSION} handle={} objective={} budget={} proofs={}\",\nproof_pages.len()"
+        },
+        {
+          "id": "qva_305349a55da9",
+          "path": "src/context_vm.rs",
+          "start_line": 401,
+          "end_line": 480,
+          "source_tokens": 790,
+          "excerpt_tokens": 144,
+          "matched_terms": [
+            "boundary",
+            "context",
+            "fault",
+            "pages",
+            "proof",
+            "resolver"
+          ],
+          "excerpt_hash": "1fa03e40a5792068",
+          "excerpt": "proof_pages,\nboundary: \"A context fault returns small cited proof pages from the local Qorx index. It cannot reveal data that was not indexed or authorized by the handle.\".to_string(),\nboundary: \"Context injection is a compact agent contract. It carries a handle and resolver path, not raw local files.\".to_string(),\nboundary: \"A Qorx nano carrier is a pointer to local Cosmos context. Cosmos means local Qorx state, not astrophysics. The carrier does not contain the local context; Qorx must expand or fault proof pages locally before any quality claim is made.\".to_string(),"
+        }
+      ],
+      "text": "# Qorx squeezed context\nquery: context fault proof pages resolver boundary\nbudget_tokens: 450\nindexed_tokens: 219838\n\n## src/context_vm.rs:321-400 id=qva_65bb29dee093 source_tokens=757 excerpt_tokens=113 score=310\nproof_pages,\nboundary: \"Qorx Context VM is a local context-memory manager, not a Linux virtual machine. It keeps Qorx-known context in Cosmos, exposes scoped handles, resolves proof pages on demand, and reports fresh model-visible context avoided instead of claiming that tokens disappear.\".to_string(),\nlet status = fault_status(&strict.coverage, &strict.missing_terms, &proof_pages);\nlet fault_id = fault_id(&resolved_handle, query, &proof_pages);\n\n## src/context_vm.rs:241-320 id=qva_560738bd6299 source_tokens=761 excerpt_tokens=58 score=276\nlet fault = resolve_context_fault(index, &session.handle, objective, options);\nlet proof_pages = fault.proof_pages.clone();\n\"QORX_CONTEXT_VM version={CONTEXT_VM_VERSION} handle={} objective={} budget={} proofs={}\",\nproof_pages.len()\n\n## src/context_vm.rs:401-480 id=qva_305349a55da9 source_tokens=790 excerpt_tokens=144 score=261\nproof_pages,\nboundary: \"A context fault returns small cited proof pages from the local Qorx index. It cannot reveal data that was not indexed or authorized by the handle.\".to_string(),\nboundary: \"Context injection is a compact agent contract. It carries a handle and resolver path, not raw local files.\".to_string(),\nboundary: \"A Qorx nano carrier is a pointer to local Cosmos context. Cosmos means local Qorx state, not astrophysics. The carrier does not contain the local context; Qorx must expand or fault proof pages locally before any quality claim is made.\".to_string(),\n",
+      "boundary": "Squeeze is extractive and local: it keeps only query-relevant lines from indexed quarks, preserves citations and hashes, and uses no model calls or generated missing context."
+    }
+  },
+  "agent": {
+    "command": [
+      "<repo>/target/release/qorx.exe",
+      "agent",
+      "prove context fault proof pages resolver boundary",
+      "--budget-tokens",
+      "600"
+    ],
+    "exit_code": 0,
+    "elapsed_ms": 82.75,
+    "stderr": "",
+    "json": {
+      "schema": "qorx.agent.v1",
+      "agent_name": "Marvin",
+      "objective": "prove context fault proof pages resolver boundary",
+      "mode": "deterministic_subatomic",
+      "local_only": true,
+      "provider_calls": 0,
+      "contract": {
+        "hallucination_policy": "refuse_unsupported_indexed_context",
+        "error_policy": "strict_extract_then_refuse",
+        "compression_policy": "subatomic_context_budget",
+        "b2c_policy": "account_then_claim",
+        "boundary": "Marvin enforces strict indexed-context mode for local evidence and keeps the working set subatomic: small enough for the requested token budget. Subatomic is a Qorx context-size label, not a physics claim. Downstream model correctness, external tool behavior, and facts absent from the local index are outside this local planner contract."
+      },
+      "steps": [
+        {
+          "action": "session",
+          "status": "completed",
+          "reason": "emit tiny local session pointer without bulk context"
+        },
+        {
+          "action": "strict-answer",
+          "status": "supported",
+          "reason": "ground objective against indexed quarks only"
+        },
+        {
+          "action": "pack",
+          "status": "completed",
+          "reason": "return the smallest relevant working set under budget"
+        }
+      ],
+      "session": {
+        "handle": "qorx://s/45c14e058b31e35b",
+        "root": "<repo>",
+        "root_fingerprint": "45c14e058b31e35b968eece04536e627d5496df968436bf87bb68fa9ace355fd",
+        "updated_at": "2026-05-02T07:38:40.435930900+00:00",
+        "quark_count": 423,
+        "indexed_tokens": 219838,
+        "visible_tokens": 73,
+        "omitted_tokens": 219765,
+        "context_reduction_x": 3011.4794520547944,
+        "boundary": "Qorx session pointers are local resolver handles; exact context stays in the local Qorx cosmos and is resolved by the Qorx proxy. Cosmos is the Qorx name for local protobuf state, not a physics claim.",
+        "prompt_block": "QORX_SESSION qorx://s/45c14e058b31e35b\nr=45c14e058b31e35b q=423 local_idx=219838\ncosmos=local redshift=ready; local_idx stays local; resolve with Qorx.\nproof at=2026-05-02T07:38:40Z ctx=219838t vis=73t omitted=219765t redshift=3011.48x est=char4 b2c=accounting cosmos=core redshift=core_b2c"
+      },
+      "strict_answer": {
+        "schema": "qorx.strict-answer.v1",
+        "question": "prove context fault proof pages resolver boundary",
+        "coverage": "supported",
+        "answer": "proof_pages,\nboundary: \"Qorx Context VM is a local context-memory manager, not a Linux virtual machine. It keeps Qorx-known context in Cosmos, exposes scoped handles, resolves proof pages on demand, and reports fresh model-visible context avoided instead of claiming that tokens disappear.\".to_string(),\nlet status = fault_status(&strict.coverage, &strict.missing_terms, &proof_pages);\nlet fault_id = fault_id(&resolved_handle, query, &proof_pages);\nlet fault = resolve_context_fault(index, &session.handle, objective, options);\nlet proof_pages = fault.proof_pages.clone();\n\"QORX_CONTEXT_VM version={CONTEXT_VM_VERSION} handle={} objective={} budget={} proofs={}\",\nproof_pages.len()",
+        "evidence": [
+          {
+            "id": "qva_65bb29dee093",
+            "path": "src/context_vm.rs",
+            "start_line": 321,
+            "end_line": 400,
+            "score": 310,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "fault",
+              "pages",
+              "proof",
+              "resolver"
+            ],
+            "excerpt_hash": "f14f144ca5ff80a6",
+            "excerpt": "proof_pages,\nboundary: \"Qorx Context VM is a local context-memory manager, not a Linux virtual machine. It keeps Qorx-known context in Cosmos, exposes scoped handles, resolves proof pages on demand, and reports fresh model-visible context avoided instead of claiming that tokens disappear.\".to_string(),\nlet status = fault_status(&strict.coverage, &strict.missing_terms, &proof_pages);\nlet fault_id = fault_id(&resolved_handle, query, &proof_pages);"
+          },
+          {
+            "id": "qva_560738bd6299",
+            "path": "src/context_vm.rs",
+            "start_line": 241,
+            "end_line": 320,
+            "score": 276,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "fault",
+              "pages",
+              "proof"
+            ],
+            "excerpt_hash": "90449f24ef565241",
+            "excerpt": "let fault = resolve_context_fault(index, &session.handle, objective, options);\nlet proof_pages = fault.proof_pages.clone();\n\"QORX_CONTEXT_VM version={CONTEXT_VM_VERSION} handle={} objective={} budget={} proofs={}\",\nproof_pages.len()"
+          }
+        ],
+        "supported_terms": [
+          "boundary",
+          "context",
+          "fault",
+          "pages",
+          "proof",
+          "resolver"
+        ],
+        "missing_terms": [],
+        "indexed_tokens": 219838,
+        "used_tokens": 220,
+        "omitted_tokens": 219618,
+        "boundary": "Strict answers are extractive: every answer byte comes from indexed quark excerpts. Unsupported questions return not_found instead of model guesses."
+      },
+      "packed_context": {
+        "query": "prove context fault proof pages resolver boundary",
+        "budget_tokens": 600,
+        "indexed_tokens": 219838,
+        "used_tokens": 486,
+        "omitted_tokens": 219352,
+        "context_reduction_x": 452.34156378600824,
+        "quarks_used": 3,
+        "text": "# Qorx B2C packed context\nquery: prove context fault proof pages resolver boundary\nbudget_tokens: 600\nindexed_tokens: 219838\nb2c_route=pack\nb2c_parallel_lanes=retrieval,portfolio,risk,cache,carrier\nb2c_math=bounded_knapsack,portfolio_diversification,omission_risk_cap,stable_quark_reuse_value\n\n## id=qva_dbc9a6ae4d2b path=examples/benchmark-lab/tasks/q-lcr.qorx lines=1-4 tokens=28 b2c_net=60.26 retrieval=33 risk=0.43 cache=3.37 carrier=fault_if_needed\nQORX 1\n@mode strict-answer\n@ask what proves Qorx Local Context Resolution has a resolver boundary?\n@budget 700\n\n## id=qva_6099b2a2f968 path=src/context_vm.rs lines=881-902 tokens=176 symbols=mut,fault_status b2c_net=62.63 retrieval=57 risk=0.43 cache=5.18 carrier=fault_if_needed\nlet mut hasher = Sha256::new();\n    hasher.update(handle.as_bytes());\n    hasher.update(query.as_bytes());\n    for page in pages {\n        hasher.update(page.uri.as_bytes());\n        hasher.update(page.content_hash.as_bytes());\n    }\n    format!(\"qvf_{}\", &format!(\"{:x}\", hasher.finalize())[..12])\n}\n\nfn fault_status(coverage: &str, missing_terms: &[String], pages: &[ProofPage]) -> String {\n    if pages.is_empty() {\n        return \"not_found\".to_string();\n    }\n    if coverage == \"supported\" && missing_terms.is_empty() {\n        return \"resolved\".to_string();\n    }\n    if coverage == \"partial\" || !missing_terms.is_empty() {\n        return \"partial\".to_string();\n    }\n    \"resolved\".to_string()\n}\n\n## id=qva_71d4ef7311b3 path=examples/benchmark-lab/src/resolver.rs lines=1-23 tokens=182 symbols=Carrier,ProofPage,resolve_carrier b2c_net=66.01 retrieval=97 risk=0.29 cache=5.21 carrier=fault_if_needed\npub struct Carrier<'a> {\n    pub mode: &'a str,\n    pub objective: &'a str,\n    pub budget_tokens: u64,\n}\n\npub struct ProofPage<'a> {\n    pub citation: &'a str,\n    pub excerpt: &'a str,\n}\n\n// Qorx Local Context Resolution keeps a resolver boundary between model-visible\n// carrier text and local evidence. The runtime resolves .qorx, .qorxb, and\n// qorx:// carriers into proof pages when local evidence supports the request.\npub fn resolve_carrier<'a>(carrier: &Carrier<'a>) -> Option<ProofPage<'a>> {\n    if carrier.mode == \"strict-answer\" && carrier.budget_tokens >= 128 {\n        return Some(ProofPage {\n            citation: \"docs/runtime-boundary.md\",\n            excerpt: carrier.objective,\n        });\n    }\n    None\n}\n"
+      },
+      "boundary": "Marvin is Qorx's deterministic local planner. The planner uses local indexed evidence, zero provider calls, and explicit refusal for unsupported indexed context."
+    }
+  },
+  "strict_answer_tasks": [
+    {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "strict-answer",
+        "context fault proof pages resolver boundary",
+        "--limit",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 65.729,
+      "stderr": "",
+      "json": {
+        "schema": "qorx.strict-answer.v1",
+        "question": "context fault proof pages resolver boundary",
+        "coverage": "supported",
+        "answer": "proof_pages,\nboundary: \"Qorx Context VM is a local context-memory manager, not a Linux virtual machine. It keeps Qorx-known context in Cosmos, exposes scoped handles, resolves proof pages on demand, and reports fresh model-visible context avoided instead of claiming that tokens disappear.\".to_string(),\nlet status = fault_status(&strict.coverage, &strict.missing_terms, &proof_pages);\nlet fault_id = fault_id(&resolved_handle, query, &proof_pages);\nlet fault = resolve_context_fault(index, &session.handle, objective, options);\nlet proof_pages = fault.proof_pages.clone();\n\"QORX_CONTEXT_VM version={CONTEXT_VM_VERSION} handle={} objective={} budget={} proofs={}\",\nproof_pages.len()\nproof_pages,\nboundary: \"A context fault returns small cited proof pages from the local Qorx index. It cannot reveal data that was not indexed or authorized by the handle.\".to_string(),\nboundary: \"Context injection is a compact agent contract. It carries a handle and resolver path, not raw local files.\".to_string(),\nboundary: \"A Qorx nano carrier is a pointer to local Cosmos context. Cosmos means local Qorx state, not astrophysics. The carrier does not contain the local context; Qorx must expand or fault proof pages locally before any quality claim is made.\".to_string(),",
+        "evidence": [
+          {
+            "id": "qva_65bb29dee093",
+            "path": "src/context_vm.rs",
+            "start_line": 321,
+            "end_line": 400,
+            "score": 310,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "fault",
+              "pages",
+              "proof",
+              "resolver"
+            ],
+            "excerpt_hash": "f14f144ca5ff80a6",
+            "excerpt": "proof_pages,\nboundary: \"Qorx Context VM is a local context-memory manager, not a Linux virtual machine. It keeps Qorx-known context in Cosmos, exposes scoped handles, resolves proof pages on demand, and reports fresh model-visible context avoided instead of claiming that tokens disappear.\".to_string(),\nlet status = fault_status(&strict.coverage, &strict.missing_terms, &proof_pages);\nlet fault_id = fault_id(&resolved_handle, query, &proof_pages);"
+          },
+          {
+            "id": "qva_560738bd6299",
+            "path": "src/context_vm.rs",
+            "start_line": 241,
+            "end_line": 320,
+            "score": 276,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "fault",
+              "pages",
+              "proof"
+            ],
+            "excerpt_hash": "90449f24ef565241",
+            "excerpt": "let fault = resolve_context_fault(index, &session.handle, objective, options);\nlet proof_pages = fault.proof_pages.clone();\n\"QORX_CONTEXT_VM version={CONTEXT_VM_VERSION} handle={} objective={} budget={} proofs={}\",\nproof_pages.len()"
+          },
+          {
+            "id": "qva_305349a55da9",
+            "path": "src/context_vm.rs",
+            "start_line": 401,
+            "end_line": 480,
+            "score": 261,
+            "matched_terms": [
+              "boundary",
+              "context",
+              "fault",
+              "pages",
+              "proof"
+            ],
+            "excerpt_hash": "1fa03e40a5792068",
+            "excerpt": "proof_pages,\nboundary: \"A context fault returns small cited proof pages from the local Qorx index. It cannot reveal data that was not indexed or authorized by the handle.\".to_string(),\nboundary: \"Context injection is a compact agent contract. It carries a handle and resolver path, not raw local files.\".to_string(),\nboundary: \"A Qorx nano carrier is a pointer to local Cosmos context. Cosmos means local Qorx state, not astrophysics. The carrier does not contain the local context; Qorx must expand or fault proof pages locally before any quality claim is made.\".to_string(),"
+          }
+        ],
+        "supported_terms": [
+          "boundary",
+          "context",
+          "fault",
+          "pages",
+          "proof",
+          "resolver"
+        ],
+        "missing_terms": [],
+        "indexed_tokens": 219838,
+        "used_tokens": 380,
+        "omitted_tokens": 219458,
+        "boundary": "Strict answers are extractive: every answer byte comes from indexed quark excerpts. Unsupported questions return not_found instead of model guesses."
+      },
+      "question": "context fault proof pages resolver boundary",
+      "expected_coverage": "supported",
+      "passed": true
+    },
+    {
+      "command": [
+        "<repo>/target/release/qorx.exe",
+        "strict-answer",
+        "galactic banana escrow treaty",
+        "--limit",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 63.352,
+      "stderr": "",
+      "json": {
+        "schema": "qorx.strict-answer.v1",
+        "question": "galactic banana escrow treaty",
+        "coverage": "not_found",
+        "answer": "",
+        "evidence": [],
+        "supported_terms": [],
+        "missing_terms": [
+          "banana",
+          "escrow",
+          "galactic",
+          "treaty"
+        ],
+        "indexed_tokens": 219838,
+        "used_tokens": 8,
+        "omitted_tokens": 219830,
+        "boundary": "Strict answers are extractive: every answer byte comes from indexed quark excerpts. Unsupported questions return not_found instead of model guesses."
+      },
+      "question": "galactic banana escrow treaty",
+      "expected_coverage": "not_found",
+      "passed": true
+    }
+  ],
+  "reproduce_command": "python scripts/run-benchmark.py --target . --suite qorx-self --budget-tokens 600 --squeeze-budget-tokens 450 --query \"context fault proof pages resolver boundary\" --query \"qorx carriers .qorx .qorxb qorx handle\" --query \"strict answer refusal unsupported claims\" --supported-question \"context fault proof pages resolver boundary\" --unsupported-question \"galactic banana escrow treaty\" --agent-objective \"prove context fault proof pages resolver boundary\" --output-json docs/benchmarks/2026-05-02-qorx-self.json --output-md docs/benchmarks/2026-05-02-qorx-self.md"
+}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use Qorx or cite the Qorx language/runtime, cite Marvin Sarreal Villanueva and this repository."
+type: software
+title: "Qorx: A Language and Runtime for Local Context Resolution"
+authors:
+  - family-names: "Villanueva"
+    given-names: "Marvin Sarreal"
+    email: "marvin@orin.work"
+    affiliation: "Metro Manila, Philippines"
+    orcid: "https://orcid.org/0009-0001-2017-5508"
+version: "1.0.4"
+date-released: "2026-05-02"
+repository-code: "https://github.com/bbrainfuckk/qorx"
+doi: "10.5281/zenodo.19875352"
+license: "AGPL-3.0-only"
+preferred-citation:
+  type: article
+  title: "Qorx Local Context Resolution: A Handle-Resolved Runtime Model for Local AI Context"
+  authors:
+    - family-names: "Villanueva"
+      given-names: "Marvin Sarreal"
+      email: "marvin@orin.work"
+      affiliation: "Metro Manila, Philippines"
+      orcid: "https://orcid.org/0009-0001-2017-5508"
+  year: 2026
+  doi: "10.5281/zenodo.19953308"
+  url: "https://doi.org/10.5281/zenodo.19953308"

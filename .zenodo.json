@@ -1,0 +1,47 @@
+{
+  "title": "Qorx: An AI-Native Language and Runtime for Local Context Resolution",
+  "upload_type": "software",
+  "description": "Qorx is an AI-native programming language and local runtime for context resolution. It defines .qorx source, .qorxb protobuf bytecode, qorx:// handles, local Cosmos state, proof paging, named resolver steps, and deterministic Baseline-to-Compact accounting.",
+  "creators": [
+    {
+      "name": "Villanueva, Marvin Sarreal",
+      "affiliation": "Metro Manila, Philippines",
+      "orcid": "0009-0001-2017-5508"
+    }
+  ],
+  "version": "1.0.4",
+  "language": "eng",
+  "license": "agpl-3.0-only",
+  "access_right": "open",
+  "keywords": [
+    "software engineering",
+    "domain-specific languages",
+    "context resolution",
+    "retrieval augmented generation",
+    "prompt caching",
+    "local-first developer tools",
+    "repository indexing",
+    "provenance",
+    "protobuf state",
+    "local federation",
+    "resolution runtime",
+    "redshift accounting"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/bbrainfuckk/qorx",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/bbrainfuckk/qorx/blob/main/docs/handbook/README.md",
+      "relation": "isDescribedBy",
+      "resource_type": "publication-technicalnote"
+    },
+    {
+      "identifier": "https://archive.softwareheritage.org/swh:1:snp:3b89fe258f3a9a318ca5c6fc4842047a36d0aff6;origin=https://github.com/bbrainfuckk/qorx/",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    }
+  ]
+}

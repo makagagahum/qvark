@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "Qorx Local Context Resolution: A Handle-Resolved Runtime Model for Local AI Context",
+    "doi": "10.5281/zenodo.19953308",
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "description": "Technical preprint defining Qorx Local Context Resolution (Q-LCR), the carrier/resolver boundary used by Qorx for local AI context, and an evaluation plan. This is a preprint and is not peer reviewed.",
+    "creators": [
+      {
+        "name": "Villanueva, Marvin Sarreal",
+        "affiliation": "Metro Manila, Philippines",
+        "orcid": "0009-0001-2017-5508"
+      }
+    ],
+    "version": "0.2",
+    "publication_date": "2026-05-01",
+    "language": "eng",
+    "access_right": "open",
+    "license": "cc-by-nd-4.0",
+    "keywords": [
+      "Qorx",
+      "Qorx Local Context Resolution",
+      "local context resolution",
+      "retrieval augmented generation",
+      "agent memory",
+      "AI tooling",
+      "Rust",
+      "bytecode",
+      "provenance"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/bbrainfuckk/qorx",
+        "relation": "isSupplementedBy",
+        "resource_type": "software"
+      },
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.19875352",
+        "relation": "isSupplementedBy",
+        "resource_type": "software"
+      },
+      {
+        "identifier": "https://bbrainfuckk.github.io/qorx/papers/qorx-local-context-resolution-preprint.html",
+        "relation": "isIdenticalTo",
+        "resource_type": "publication-preprint"
+      }
+    ],
+    "communities": [],
+    "notes": "Published at https://doi.org/10.5281/zenodo.19953308. Do not describe the record as peer reviewed unless it has passed peer review."
+  }
+}

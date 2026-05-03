@@ -1,0 +1,14 @@
+diff --git a/examples/impact-lab/src/routes/auth.ts b/examples/impact-lab/src/routes/auth.ts
+index 1111111..2222222 100644
+--- a/examples/impact-lab/src/routes/auth.ts
++++ b/examples/impact-lab/src/routes/auth.ts
+@@ -1,6 +1,7 @@
+ import { issueSession } from '../services/session';
+ import { auditEvent } from '../services/audit';
+ 
+ export function postLogin(req) {
++  if (!req.user) throw new Error('missing user');
+   const session = issueSession(req.user.id);
+   auditEvent('login');
+   return session;
+ }

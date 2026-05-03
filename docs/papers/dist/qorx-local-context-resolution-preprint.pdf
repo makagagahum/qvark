@@ -1,0 +1,206 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [8 0 R 10 0 R 12 0 R 14 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Title (Qorx Local Context Resolution: A Handle-Resolved Runtime Model for Local AI Context) /Author (Marvin Sarreal Villanueva) /Subject (Qorx Local Context Resolution preprint) /Keywords (Qorx, local context resolution, AI context, Rust) /Creator (scripts/build-preprint-pdf.py) /Producer (Qorx dependency-free PDF builder) >>
+endobj
+7 0 obj
+<< /Length 3107 >>
+stream
+BT /F2 17.0 Tf 1 0 0 1 54.0 738.0 Tm (Qorx Local Context Resolution: a handle-resolved runtime model) Tj ET
+BT /F2 17.0 Tf 1 0 0 1 54.0 715.0 Tm (for local AI context) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 682.0 Tm (Marvin Sarreal Villanueva) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 659.0 Tm (Metro Manila, Philippines) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 636.0 Tm (Version 0.2 preprint manuscript) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 613.0 Tm (May 1, 2026) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 590.0 Tm (DOI: 10.5281/zenodo.19953308) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 567.0 Tm (License: CC BY-ND 4.0) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 544.0 Tm (Software version: Qorx 1.0.4) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 513.0 Tm (Abstract) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 483.0 Tm (Large language model workflows often resend local context: source files, logs,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 468.0 Tm (notes, retrieved chunks, and previous tool output. Qorx defines a smaller) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 453.0 Tm (runtime boundary. A workflow carries a source file, bytecode file, handle, or) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 438.0 Tm (evidence pack, then resolves the needed evidence locally under a declared mode) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 423.0 Tm (and budget. This paper defines Qorx Local Context Resolution \(Q-LCR\), describes) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 408.0 Tm (the carrier/resolver model, and gives an evaluation plan. This manuscript is a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 393.0 Tm (technical preprint. It is not peer reviewed.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 362.0 Tm (1. Definition) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 332.0 Tm (Qorx Local Context Resolution, or Q-LCR, is the runtime process of resolving a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 317.0 Tm (small carrier into local evidence under a declared task mode and evidence) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 302.0 Tm (budget.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 279.0 Tm (A carrier can be .qorx source, .qorxb bytecode, a qorx:// handle, or a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 264.0 Tm (compact evidence pack. The carrier is not the evidence itself. The resolver) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 249.0 Tm (reads local state and returns a proof page, or refuses when it cannot support the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 234.0 Tm (request.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 211.0 Tm (This distinction matters because a handle alone does not make hidden local data) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 196.0 Tm (known to a model. The resolver path is part of the system.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 165.0 Tm (2. Statement of need) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 135.0 Tm (Developer-agent workflows often need the same local facts more than once. A) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 120.0 Tm (repository answer may depend on source files, generated indexes, prior tool) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 105.0 Tm (output, a cache entry, or a signed receipt. Sending all of that state into a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 90.0 Tm (model prompt is simple, but it is hard to audit and it can waste context budget.) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3357 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 54.0 738.0 Tm (Qorx is for the narrower case where the evidence already exists locally and a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 723.0 Tm (workflow needs a small, inspectable way to ask for it. Q-LCR treats the handle) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 708.0 Tm (or bytecode as a carrier, not as the evidence itself.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 677.0 Tm (3. Motivation) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 647.0 Tm (RAG showed that retrieval can ground generation in external documents rather) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 632.0 Tm (than relying only on model parameters. ReAct-style agents showed that language) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 617.0 Tm (models can interleave reasoning with tool actions. MemGPT framed long-context) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 602.0 Tm (management as an operating-system-like memory problem. Long-context studies such) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 587.0 Tm (as "Lost in the Middle" showed that adding more tokens is not the same as making) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 572.0 Tm (all evidence equally usable.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 549.0 Tm (Qorx sits in this engineering space, but it makes a narrower claim. It does not) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 534.0 Tm (train a model, replace RAG, or promise universal compression. It defines a local) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 519.0 Tm (runtime boundary for addressed evidence.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 488.0 Tm (4. Runtime model) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 458.0 Tm (Q-LCR has five parts:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 435.0 Tm (1. Carrier: the small object moved through the workflow.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 420.0 Tm (2. Resolver: the local runtime that interprets the carrier.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 405.0 Tm (3. Local state: indexes, cache entries, receipts, provenance, and source text.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 390.0 Tm (4. Budget: the maximum visible evidence allowed for the task.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 375.0 Tm (5. Proof page: the returned evidence and citation surface.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 352.0 Tm (The simplest .qorx program is:) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 329.0 Tm (QORX 1) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 317.0 Tm (@mode strict-answer) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 305.0 Tm (@ask which files explain how Qorx keeps local evidence outside the model prompt?) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 293.0 Tm (@budget 700) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 265.0 Tm (The runtime can compile the source to bytecode:) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 242.0 Tm (qorx qorx-compile goal.qorx --out goal.qorxb) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 230.0 Tm (qorx goal.qorxb) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 194.0 Tm (5. Measured claims) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 164.0 Tm (Qorx should be judged on measured behavior, not vocabulary.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 141.0 Tm (The current measurable claims are:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 118.0 Tm (- parser and bytecode round-trip correctness;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 103.0 Tm (- resolver support rate on evidence-seeking tasks;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 88.0 Tm (- retrieval correctness against known local files;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 73.0 Tm (- visible token reduction under a declared local estimator;) Tj ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 3022 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 54.0 738.0 Tm (- latency of indexing and resolution;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 723.0 Tm (- provenance verification for receipts and proof pages.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 700.0 Tm (Redshift is local accounting:) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 677.0 Tm (redshift = local_estimated_tokens / visible_estimated_tokens) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 649.0 Tm (B2C accounting compares a baseline payload with the carrier or proof page:) Tj ET
+BT /F3 8.5 Tf 1 0 0 1 66.0 626.0 Tm (omitted_tokens = baseline_local_tokens - visible_carrier_tokens) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 598.0 Tm (Provider invoice savings require provider billing evidence. Qorx local) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 583.0 Tm (accounting is not enough.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 552.0 Tm (6. Evaluation plan) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 522.0 Tm (The first serious evaluation should use at least three repositories:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 499.0 Tm (- a small Rust CLI;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 484.0 Tm (- a medium web application;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 469.0 Tm (- a mixed documentation/code repository.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 446.0 Tm (For each repository, run paired tasks:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 423.0 Tm (- baseline: paste or retrieve the usual large context;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 408.0 Tm (- Qorx: use .qorx, .qorxb, or qorx:// carriers and resolve locally.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 385.0 Tm (Record:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 362.0 Tm (- task success;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 347.0 Tm (- support rate;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 332.0 Tm (- exact evidence citations;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 317.0 Tm (- visible input tokens;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 302.0 Tm (- latency;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 287.0 Tm (- resolver errors;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 272.0 Tm (- provider-side cost only when routed billing evidence exists.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 249.0 Tm (The evaluation should publish the task list, source revision identifiers, Qorx) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 234.0 Tm (commands, result files, and failure cases.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 203.0 Tm (7. Related work) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 173.0 Tm (Retrieval-Augmented Generation introduced a retrieval-backed generation model) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 158.0 Tm (for knowledge-intensive NLP tasks. Qorx differs by keeping retrieval and) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 143.0 Tm (evidence resolution in a local runtime instead of defining a model architecture.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 120.0 Tm (ReAct showed the value of tool use as part of language model workflows. Qorx) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 105.0 Tm (treats the resolver as a tool/runtime boundary with explicit carriers.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 82.0 Tm (MemGPT used an operating-system memory analogy for long-context agents. Qorx) Tj ET
+
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2923 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 54.0 738.0 Tm (uses a simpler runtime boundary: handle, resolve, pack, cite, or refuse.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 715.0 Tm ("Lost in the Middle" showed that long context can still be hard for models to) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 700.0 Tm (use. Qorx does not solve long-context reasoning by itself. It tries to reduce) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 685.0 Tm (the amount of irrelevant context placed in the visible prompt.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 654.0 Tm (8. Limits) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 624.0 Tm (Q-LCR does not mean that a remote model understands a local repository from a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 609.0 Tm (short handle. It means the local runtime can resolve that handle when asked.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 586.0 Tm (Qorx also does not claim first use of the broad phrase "context resolution".) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 571.0 Tm (This paper defines Qorx Local Context Resolution as a specific AI/developer) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 556.0 Tm (tooling runtime model.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 533.0 Tm (Q-LCR is not a standard by itself. A standard would need independent) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 518.0 Tm (implementations, outside review, and a separate standards process.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 487.0 Tm (9. Availability) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 457.0 Tm (The reference implementation is Qorx 1.0.4. The source code is available at) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 442.0 Tm (https://github.com/bbrainfuckk/qorx under AGPL-3.0-only.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 419.0 Tm (The preprint record is available through Zenodo DOI) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 404.0 Tm (10.5281/zenodo.19953308.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 381.0 Tm (The software citation record is separate and available through Zenodo DOI) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 366.0 Tm (10.5281/zenodo.19875352.) Tj ET
+BT /F2 14.0 Tf 1 0 0 1 54.0 335.0 Tm (10. References) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 305.0 Tm (- Patrick Lewis et al. "Retrieval-Augmented Generation for Knowledge-Intensive) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 290.0 Tm (NLP Tasks." arXiv:2005.11401, 2020. https://arxiv.org/abs/2005.11401) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 275.0 Tm (- Shunyu Yao et al. "ReAct: Synergizing Reasoning and Acting in Language) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 260.0 Tm (Models." arXiv:2210.03629, 2022. https://arxiv.org/abs/2210.03629) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 245.0 Tm (- Charles Packer et al. "MemGPT: Towards LLMs as Operating Systems.") Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 230.0 Tm (arXiv:2310.08560, 2023. https://arxiv.org/abs/2310.08560) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 215.0 Tm (- Nelson F. Liu et al. "Lost in the Middle: How Language Models Use Long) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 54.0 200.0 Tm (Contexts." arXiv:2307.03172, 2023. https://arxiv.org/abs/2307.03172) Tj ET
+
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000142 00000 n 
+0000000212 00000 n 
+0000000287 00000 n 
+0000000355 00000 n 
+0000000702 00000 n 
+0000003861 00000 n 
+0000004007 00000 n 
+0000007416 00000 n 
+0000007563 00000 n 
+0000010638 00000 n 
+0000010786 00000 n 
+0000013762 00000 n 
+trailer
+<< /Size 15 /Root 1 0 R /Info 6 0 R >>
+startxref
+13910
+%%EOF

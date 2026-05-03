@@ -1,0 +1,78 @@
+name: Scientific Publish
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "GitHub release tag to publish, for example v1.0.0"
+        required: true
+        type: string
+      create_github_release:
+        description: "Create a GitHub release; Zenodo archives releases when enabled"
+        required: true
+        default: false
+        type: boolean
+      poll_software_heritage:
+        description: "Poll Software Heritage until the save request completes or times out"
+        required: true
+        default: true
+        type: boolean
+      skip_software_heritage:
+        description: "Skip Software Heritage and only create/validate the GitHub-Zenodo release path"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Publish scientific metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate metadata files
+        shell: pwsh
+        run: |
+          if (!(Test-Path CITATION.cff)) { throw "Missing CITATION.cff" }
+          if (!(Test-Path .zenodo.json)) { throw "Missing .zenodo.json" }
+          if (!(Test-Path docs/papers/qorx-ai-language-paper.md)) { throw "Missing Qorx paper" }
+
+      - name: Publish to automatable surfaces
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.QORX_PUBLISH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
+          CREATE_GITHUB_RELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.create_github_release || 'true' }}
+          POLL_SOFTWARE_HERITAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.poll_software_heritage || 'true' }}
+          SKIP_SOFTWARE_HERITAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.skip_software_heritage || 'false' }}
+        run: |
+          $publishArgs = @{
+            Repo = "bbrainfuckk/qorx"
+            OriginUrl = "https://github.com/bbrainfuckk/qorx"
+            Version = "$env:RELEASE_TAG"
+          }
+          if ("$env:CREATE_GITHUB_RELEASE" -eq "true") {
+            $publishArgs.CreateGitHubRelease = $true
+          }
+          if ("$env:POLL_SOFTWARE_HERITAGE" -eq "true") {
+            $publishArgs.PollSoftwareHeritage = $true
+          }
+          if ("$env:SKIP_SOFTWARE_HERITAGE" -eq "true") {
+            $publishArgs.SkipSoftwareHeritage = $true
+          }
+          ./scripts/publish-science.ps1 @publishArgs
+
+      - name: Upload publication report
+        uses: actions/upload-artifact@v7
+        with:
+          name: qorx-language-paper
+          path: docs/papers/qorx-ai-language-paper.md

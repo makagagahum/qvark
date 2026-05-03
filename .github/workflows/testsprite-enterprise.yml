@@ -1,0 +1,117 @@
+name: TestSprite Enterprise QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "Public staging URL for the Qorx product surface to test"
+        required: true
+        type: string
+      blocking:
+        description: "Fail this workflow when TestSprite reports a failing suite"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testsprite-enterprise-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  community-boundary:
+    name: Community boundary check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Verify CE docs and command gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "Qorx Community Edition" README.md
+          grep -q "Qorx Local Pro" docs/COMMUNITY.md
+          grep -q "The CE binary refuses" docs/COMMANDS.md
+          grep -q "daemon" docs/SERVER.md
+          grep -q "TESTSPRITE_API_KEY" docs/TESTSPRITE.md
+
+      - name: Build source CLI
+        run: cargo build --release --locked
+
+      - name: Smoke test CE command surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./target/release/qorx --version
+          ./target/release/qorx doctor --json
+          if ./target/release/qorx daemon status; then
+            echo "::error::Community Edition must not expose daemon status"
+            exit 1
+          fi
+
+  testsprite-cloud:
+    name: TestSprite cloud suite
+    needs: community-boundary
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate TestSprite secret
+        shell: bash
+        env:
+          TESTSPRITE_API_KEY: ${{ secrets.TESTSPRITE_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${TESTSPRITE_API_KEY}" ]; then
+            echo "::error::TESTSPRITE_API_KEY is not configured. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Note suite precondition
+        shell: bash
+        run: |
+          mkdir -p testsprite_tests/tmp
+          echo "TestSprite target: ${{ inputs.base_url }}"
+
+      - name: TestSprite Action
+        id: testsprite
+        uses: TestSprite/run-action@v1
+        continue-on-error: ${{ inputs.blocking == 'false' }}
+        env:
+          BASE_URL: ${{ inputs.base_url }}
+          TESTSPRITE_BASE_URL: ${{ inputs.base_url }}
+        with:
+          testsprite-api-key: ${{ secrets.TESTSPRITE_API_KEY }}
+          base_url: ${{ inputs.base_url }}
+          github-token: ${{ github.token }}
+          blocking: ${{ inputs.blocking }}
+
+      - name: Summarize TestSprite output
+        if: always()
+        shell: bash
+        run: |
+          if [ -f testsprite_tests/tmp/test_results.json ]; then
+            echo "TestSprite wrote testsprite_tests/tmp/test_results.json" >> "$GITHUB_STEP_SUMMARY"
+            echo "Action outputs:" >> "$GITHUB_STEP_SUMMARY"
+            echo "- total_tests: ${{ steps.testsprite.outputs.total_tests }}" >> "$GITHUB_STEP_SUMMARY"
+            echo "- passed_tests: ${{ steps.testsprite.outputs.passed_tests }}" >> "$GITHUB_STEP_SUMMARY"
+            echo "- result_url: ${{ steps.testsprite.outputs.result_url }}" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "TestSprite did not write testsprite_tests/tmp/test_results.json." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload TestSprite artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: testsprite-tests
+          path: testsprite_tests/**
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,0 +1,19 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Qorx context reduction chart</title>
+  <desc id="desc">Horizontal bar chart comparing Qorx session pointer, squeeze, and benchmark average reduction factors.</desc>
+  <rect width="1200" height="520" rx="24" fill="#FFFFFF"/>
+  <text x="56" y="72" fill="#161C24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">Measured Context Reduction</text>
+  <text x="56" y="108" fill="#667085" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="400">Higher is better. Reduction is indexed tokens divided by sent or visible tokens.</text>
+  <line x1="240" y1="150" x2="240" y2="440" stroke="#D0D5DD" stroke-width="2"/>
+  <line x1="240" y1="440" x2="1100" y2="440" stroke="#D0D5DD" stroke-width="2"/>
+  <text x="56" y="205" fill="#161C24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">Session pointer</text>
+  <rect x="240" y="174" width="820" height="44" rx="12" fill="#6F42C1"/>
+  <text x="1080" y="203" text-anchor="end" fill="#161C24" font-family="SFMono-Regular, Consolas, monospace" font-size="22" font-weight="700">16.30x</text>
+  <text x="56" y="295" fill="#161C24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">Squeeze</text>
+  <rect x="240" y="264" width="145" height="44" rx="12" fill="#0DCAF0"/>
+  <text x="405" y="293" text-anchor="end" fill="#161C24" font-family="SFMono-Regular, Consolas, monospace" font-size="22" font-weight="700">2.88x</text>
+  <text x="56" y="385" fill="#161C24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">Bench average</text>
+  <rect x="240" y="354" width="116" height="44" rx="12" fill="#FD7E14"/>
+  <text x="376" y="383" text-anchor="end" fill="#161C24" font-family="SFMono-Regular, Consolas, monospace" font-size="22" font-weight="700">2.31x</text>
+  <text x="240" y="470" fill="#667085" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400">Source: docs/benchmarks/2026-05-01-benchmark-lab.json</text>
+</svg>
